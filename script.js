@@ -108,3 +108,320 @@ function httpGet(theUrl) {
   }
   console.log(debateCardsNoRepeat)
   
+
+  let totalCardsLabel = []
+  let totalCardsData = []
+  let totalCardsObj = {}
+  for (let key in debateCardsNoRepeat){
+    totalCardsObj[key] = debateCardsNoRepeat[key]
+  }
+  for (let key in speechCardsNoRepeat){
+    if (totalCardsObj[key] != undefined){
+      totalCardsObj[key] += speechCardsNoRepeat[key]
+    }
+    else {
+      totalCardsObj[key] = speechCardsNoRepeat[key]
+    }
+  }
+  console.log(totalCardsObj)
+  for (let key in totalCardsObj){
+    totalCardsLabel.push(key)
+    totalCardsData.push(totalCardsObj[key])
+  }
+
+  
+  var ctx1 = document.getElementById("myChart").getContext("2d");
+
+  var gradientStroke1 = ctx1.createLinearGradient(500, 0, 100, 0);
+
+  gradientStroke1.addColorStop(0, 'rgba(3, 138, 255, 1)');
+
+  gradientStroke1.addColorStop(1, 'rgba(3, 138, 255, 0.25)');
+  let myChart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: totalCardsLabel,
+      datasets: [{
+        label: "Amount of cards",
+        fontColor: "white",
+        borderColor: gradientStroke1,
+        pointBorderColor: gradientStroke1,
+        pointBackgroundColor: gradientStroke1,
+        pointHoverBackgroundColor: gradientStroke1,
+        pointHoverBorderColor: gradientStroke1,
+        pointBorderWidth: 2,
+        pointHoverRadius: 5,
+        pointHoverBorderWidth: 0.2,
+        pointRadius: 0.5,
+        borderWidth: 4,
+        data: totalCardsData,
+        spanGaps: true,
+        lineTension: 0.1,
+        backgroundColor: gradientStroke1,
+
+
+      }]
+    },
+    options: {
+      legend: {
+        position: "bottom",
+        fontColor: "black",
+        maintainAspectRatio: false
+      },
+      elements: {
+        point: {
+          // radius: 0,
+          hitRadius: 10
+        }
+      },
+      scales: {
+        y: {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Cards",
+            "fontColor": "white"
+
+          },
+          gridLines: {
+            drawTicks: true,
+            display: true,
+            zeroLineColor: "rgba(255, 255, 255, 0.25)",
+            color: "rgba(255, 255, 255, 0.25)"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "white",
+            fontStyle: "bold"
+          }
+        },
+        x: {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Week",
+            "fontColor": "white"
+
+          },
+          gridLines: {
+            zeroLineColor: "rgba(255, 255, 255, 0.25)",
+            color: "rgba(255, 255, 255, 0.25)"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "white",
+            fontStyle: "bold"
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: `Total Cards (without repeats)`,
+          fontColor: "white"
+        }
+      }
+
+    }
+  })
+
+  let labelArr = []
+  let dataArr = []
+  
+  for (let key in debateCardsNoRepeat){
+    labelArr.push(key)
+    dataArr.push(debateCardsNoRepeat[key])
+  }
+
+  var ctx = document.getElementById("myChart2").getContext("2d");
+
+  var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+
+  gradientStroke.addColorStop(0, 'rgba(3, 138, 255, 1)');
+
+  gradientStroke.addColorStop(1, 'rgba(3, 138, 255, 0.25)');
+  let myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labelArr,
+      datasets: [{
+        label: "Amount of cards",
+        fontColor: "white",
+        borderColor: gradientStroke,
+        pointBorderColor: gradientStroke,
+        pointBackgroundColor: gradientStroke,
+        pointHoverBackgroundColor: gradientStroke,
+        pointHoverBorderColor: gradientStroke,
+        pointBorderWidth: 2,
+        pointHoverRadius: 5,
+        pointHoverBorderWidth: 0.2,
+        pointRadius: 0.5,
+        borderWidth: 4,
+        data: dataArr,
+        spanGaps: true,
+        lineTension: 0.1,
+        backgroundColor: gradientStroke,
+
+
+      }]
+    },
+    options: {
+      legend: {
+        position: "bottom",
+        fontColor: "black",
+        maintainAspectRatio: false
+      },
+      elements: {
+        point: {
+          // radius: 0,
+          hitRadius: 10
+        }
+      },
+      scales: {
+        y: {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Cards",
+            "fontColor": "white"
+
+          },
+          gridLines: {
+            drawTicks: true,
+            display: true,
+            zeroLineColor: "rgba(255, 255, 255, 0.25)",
+            color: "rgba(255, 255, 255, 0.25)"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "white",
+            fontStyle: "bold"
+          }
+        },
+        x: {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Week",
+            "fontColor": "white"
+
+          },
+          gridLines: {
+            zeroLineColor: "rgba(255, 255, 255, 0.25)",
+            color: "rgba(255, 255, 255, 0.25)"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "white",
+            fontStyle: "bold"
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: `Debate Cards (without repeats)`,
+          fontColor: "white"
+        }
+      }
+
+    }
+  })
+
+  let labelArrSpeech = []
+  let dataArrSpeech = []
+  
+  for (let key in speechCardsNoRepeat){
+    labelArrSpeech.push(key)
+    dataArrSpeech.push(speechCardsNoRepeat[key])
+  }
+
+  var ctx2 = document.getElementById("myChart3").getContext("2d");
+
+  var gradientStroke2 = ctx2.createLinearGradient(500, 0, 100, 0);
+
+  gradientStroke2.addColorStop(0, 'rgba(3, 138, 255, 1)');
+
+  gradientStroke2.addColorStop(1, 'rgba(3, 138, 255, 0.25)');
+  let myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: labelArrSpeech,
+      datasets: [{
+        label: "Amount of cards",
+        fontColor: "white",
+        borderColor: gradientStroke2,
+        pointBorderColor: gradientStroke2,
+        pointBackgroundColor: gradientStroke2,
+        pointHoverBackgroundColor: gradientStroke2,
+        pointHoverBorderColor: gradientStroke2,
+        pointBorderWidth: 2,
+        pointHoverRadius: 5,
+        pointHoverBorderWidth: 0.2,
+        pointRadius: 0.5,
+        borderWidth: 4,
+        data: dataArrSpeech,
+        spanGaps: true,
+        lineTension: 0.1,
+        backgroundColor: gradientStroke2,
+
+
+      }]
+    },
+    options: {
+      legend: {
+        position: "bottom",
+        fontColor: "black",
+        maintainAspectRatio: false
+      },
+      elements: {
+        point: {
+          // radius: 0,
+          hitRadius: 10
+        }
+      },
+      scales: {
+        y: {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Cards",
+            "fontColor": "white"
+
+          },
+          gridLines: {
+            drawTicks: true,
+            display: true,
+            zeroLineColor: "rgba(255, 255, 255, 0.25)",
+            color: "rgba(255, 255, 255, 0.25)"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "white",
+            fontStyle: "bold"
+          }
+        },
+        x: {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Week",
+            "fontColor": "white"
+
+          },
+          gridLines: {
+            zeroLineColor: "rgba(255, 255, 255, 0.25)",
+            color: "rgba(255, 255, 255, 0.25)"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "white",
+            fontStyle: "bold"
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: `Speech Cards (without repeats)`,
+          fontColor: "white"
+        }
+      }
+
+    }
+  })
+  

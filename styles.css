@@ -1,0 +1,23 @@
+#main {
+    display: block
+
+}
+body {
+    background: whitesmoke;
+
+}
+#content {
+    height: 100vw;
+
+
+}
+.wrapper{
+  width: 600px;
+  display:block;
+  /* overflow:hidden; */
+  margin:0 auto;
+  padding: 60px 50px;
+  background:#eec9d2;
+  border-radius:10px;
+  margin-top: 20px;
+}
