@@ -1,4 +1,6 @@
 # sdcards
+live link: sashankbalusu.github.io/sdcards
+
 Features:
 - view wildcards for congress, debate, and speech
 - incorporates restraints into total cards for each event as well as overall (e.g. no triple carding in speech, no double carding in debate, max of seven cards in congo)
