@@ -21,6 +21,10 @@ body {
   border-radius:10px;
   margin-top: 20px;
 }
+canvas {
+    height: 500px !important;
+    width: 600px !important;
+}
 button {
     display: block;
     width: 200px;

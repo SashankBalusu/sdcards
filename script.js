@@ -87,10 +87,11 @@ function createGraph(selector, labelArr, dataArr, title){
       }]
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       legend: {
         position: "bottom",
         fontColor: "black",
-        maintainAspectRatio: false
       },
       elements: {
         point: {
