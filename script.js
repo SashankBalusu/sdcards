@@ -92,6 +92,11 @@ function createGraph(selector, labelArr, dataArr, title){
       legend: {
         position: "bottom",
         fontColor: "black",
+        font: {
+          family: "Helvetica Neue",
+          size: 20,
+
+        }
       },
       elements: {
         point: {
@@ -141,7 +146,12 @@ function createGraph(selector, labelArr, dataArr, title){
         title: {
           display: true,
           text: title,
-          fontColor: "white"
+          fontColor: "black",
+          font: {
+            family: "Helvetica Neue",
+            size: 20,
+
+          }
         }
       }
 
@@ -180,7 +190,6 @@ for (let i = 0; i < speechSchools.length;i++){
     }
     speechCardsObj[speechSchools[i]] = countOccurrences(speechSchools, speechSchools[i])
 }
-
 count = 0
 let debateSchoolsObj = {}
 for (let i = 0; i < debateSchools.length;i++){
@@ -210,9 +219,10 @@ for (let i = 0; i < congressSchools.length;i++){
 }
 console.log(congressSchoolsObj)
 let carderBySchool = {}
-for (let i = 0; i < speechCompetitors.length; i++){
+for (let i = 0; i < speechSchools.length; i++){
   if (carderBySchool[speechSchools[i]] == undefined){
     carderBySchool[speechSchools[i]] = [speechCompetitors[i]]
+    console.log(speechSchools[i])
 
   }
   else {
@@ -223,6 +233,7 @@ for (let i = 0; i < speechCompetitors.length; i++){
   }
   
 }
+console.log(carderBySchool)
 let speechCardsNoRepeat = {}
 let speechCompetitorsNoDuplicatesObj = uniq2(carderBySchool)
 let speechCompetitorsNoDuplicates =[]
