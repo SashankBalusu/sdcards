@@ -1,12 +1,42 @@
 #main {
-    display: block
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "sidenav content";
 
 }
 body {
     background: whitesmoke;
+    height: 100vw;
 
 }
+#cardDat {
+    margin-left: -20px;
+}
+#lookup {
+    margin-top: -250px;
+}
+.options {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-top: 10px;
+    background: none;
+
+}
+#sideNav {
+    display: grid;
+    grid-area: sidenav;
+    background: lightblue;
+    margin-top: 20px;
+    border-radius: 10px;
+    position: fixed;
+    left:0;
+    height: 90%;
+    width: 20%;
+}
 #content {
+    display: grid;
+    grid-area: content;
     height: fit-content;
 
 
