@@ -428,3 +428,11 @@ hideData.addEventListener("click", function(){
   document.querySelector("#dat").setAttribute("style", "display: none")
 
 })
+const lookup = document.querySelector("#lookup")
+lookup.addEventListener("click", function(){
+  alert("in the works")
+})
+const cardDat = document.querySelector("#cardDat")
+cardDat.addEventListener("click", function(){
+  alert("in the works")
+})
